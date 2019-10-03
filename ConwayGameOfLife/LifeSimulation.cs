@@ -23,15 +23,13 @@
             {
                 for (int x = 0; x < _xLength; x++)
                 {
-                    int currentCellState = CurrentState[y, x];
-
                     var neighboursGrid = _gridOperator.GetNeighboursGrid(CurrentState, x, y);
                     int currentCellPositionX = x < 2 && x < _xLength - 2 ? x : 1;
                     int currentCellPositionY = y < 2 && y < _yLength - 2 ? y : 1;
 
                     int aliveNeighboursCount = _gridOperator.GetAliveNeighboursCount(neighboursGrid, currentCellPositionX, currentCellPositionY);
                     
-                    nextGenerationState[y, x] = _gridOperator.IsAlive(currentCellState, aliveNeighboursCount); ;
+                    nextGenerationState[y, x] = _gridOperator.IsAlive(CurrentState[y, x], aliveNeighboursCount);
                 }
             }
 
