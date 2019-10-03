@@ -7,62 +7,26 @@ namespace ConwayGameOfLife
     {
         static void Main(string[] args)
         {
-            //int[,] initialState = new[,]
-            //{
-            //    {1, 0, 1, 1, 1},
-            //    {0, 1, 1, 0, 0},
-            //    {0, 0, 0, 0, 1},
-            //    {1, 1, 1, 0, 0},
-            //    {0, 0, 0, 1, 1}
-            //};
-
-            //int[,] initialState = new[,]
-            //{
-            //    {1, 0, 0, 0, 1},
-            //    {0, 1, 0, 1, 0},
-            //    {0, 0, 1, 0, 1},
-            //    {0, 1, 0, 1, 0},
-            //    {1, 0, 0, 0, 1}
-            //};
-
-            //int[,] initialState = new[,]
-            //{
-            //    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 1, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            //    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-            //};
-
-            int[,] initialState = GetCrossInitialState(45);
-
-
-            int xLength = initialState.GetLength(1);
-            int yLength = initialState.GetLength(0);
+            int length = 45;
+            int[,] initialState = GetCrossInitialState(length);
 
             LifeSimulation lifeSimulation = new LifeSimulation(initialState, new GridOperator());
             for (int i = 0; i < 100; i++)
             {
                 Console.Clear();
-                for (int y = 0; y < yLength; y++)
+                Console.WriteLine($"Generation number: {i}\n");
+
+                for (int y = 0; y < length; y++)
                 {
-                    for (int x = 0; x < xLength; x++)
+                    for (int x = 0; x < length; x++)
                     {
                         Console.Write(lifeSimulation.CurrentState[y, x] == 1 ? "X" : " ");
                     }
                     Console.WriteLine();
                 }
                 lifeSimulation.NextGeneration();
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
-
-
-            Console.WriteLine("Hello World!");
         }
 
         private static int[,] GetCrossInitialState(int length)
