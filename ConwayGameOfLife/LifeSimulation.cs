@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace ConwayGameOfLife
+﻿namespace ConwayGameOfLife
 {
     public class LifeSimulation
     {

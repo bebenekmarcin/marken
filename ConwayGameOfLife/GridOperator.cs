@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace ConwayGameOfLife
+﻿namespace ConwayGameOfLife
 {
     public class GridOperator : IGridOperator
     {
@@ -43,8 +40,7 @@ namespace ConwayGameOfLife
 
             return isAliveNow;
         }
-
-
+        
         public int[,] GetNeighboursGrid(int[,] grid, int currentCellPositionX, int currentCellPositionY)
         {
             int yLength = grid.GetLength(0);

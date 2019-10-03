@@ -5,7 +5,7 @@ namespace ConwayGameOfLife
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             int length = 45;
             int[,] initialState = GetCrossInitialState(length);
